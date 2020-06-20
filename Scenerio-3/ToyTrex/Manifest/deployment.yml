@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+    name: Toytrex-deployment
+    labels:
+        app: Toytrex
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: Toytrex
+    template: 
+        metadata:
+            labels:
+                app: Toytrex
+        spec:
+            containers:
+            - name: k8s-Toytrex
+              image: maerskcontainerregistry123.azurecr.io/Toytrex:latest
+              ports:
+              - containerPort: 80
+            imagePullSecrets:
+            - name: maerskcontainerregistry123
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: Toytrex
+    labels:
+        app: Toytrex
+spec:
+    ports:
+        - name: http-port
+          port: 80
+          targetPort: 80
+    selector: 
+        app: Toytrex
+    type: LoadBalancer

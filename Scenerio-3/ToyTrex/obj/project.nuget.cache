@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Cj6KGbpfWe4ojDqQ8FfEKqvz+d/D3QwSnDDAuuXfwzYL6MbnHIV0MPk81rChJoabP4AopwesY3mcK2FC693PSQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\10648078\\source\\repos\\ToyTrex\\ToyTrex\\ToyTrex.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\10648078\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
+    "C:\\Users\\10648078\\.nuget\\packages\\microsoft.visualstudio.azure.kubernetes.tools.targets\\1.1.0\\microsoft.visualstudio.azure.kubernetes.tools.targets.1.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
