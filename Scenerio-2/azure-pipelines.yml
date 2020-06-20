@@ -1,0 +1,36 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- script: Starting ARM Demployemnt !
+  displayName: 'Run a one-line script'
+  
+
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'SauravSubscription(95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    KeyVaultName: 'MaerskVault'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'SauravSubscription(************************)'
+    subscriptionId: '*****************************************'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'DnsZoneRG'
+    location: 'Central US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/imsauravroy007/APMoller/blob/master/template.json'
+    csmParametersFileLink: 'https://github.com/imsauravroy007/APMoller/blob/master/parametersFile.json'
+    overrideParameters: '-adminUsername  $(vmPassword)'
+    deploymentMode: 'Incremental'
